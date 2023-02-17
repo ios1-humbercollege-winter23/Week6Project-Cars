@@ -24,6 +24,7 @@ class AllCarsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return managerOjbect.allCars.count
     }
 
@@ -42,6 +43,7 @@ class AllCarsTableViewController: UITableViewController {
             }else {
                 cell.carImage.image = UIImage(named: "oldcar")
             }
+           
             return cell
             
         }
@@ -72,16 +74,41 @@ class AllCarsTableViewController: UITableViewController {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .insert {
+
+
+        }else
         if editingStyle == .delete {
-            
+
             managerOjbect.deleteACar(index: indexPath.row)
             tableView.reloadData()
-            
-        } else if editingStyle == .insert {
-           
+
         }
     }
     
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//
+//            let more = UITableViewRowAction(style: .normal, title: "More") { action, index in
+//                //self.isEditing = false
+//                print("more button tapped")
+//            }
+//            more.backgroundColor = UIColor.lightGray
+//
+//            let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+//                //self.isEditing = false
+//                print("favorite button tapped")
+//            }
+//            favorite.backgroundColor = UIColor.orange
+//
+//            let share = UITableViewRowAction(style: .normal, title: "Share") { action, index in
+//                //self.isEditing = false
+//                print("share button tapped")
+//            }
+//            share.backgroundColor = UIColor.blue
+//
+//            return [share, favorite, more]
+//        }
 
     /*
     // Override to support rearranging the table view.
